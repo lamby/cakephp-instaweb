@@ -53,9 +53,11 @@ def main():
             request.postpath = ['index.php']
         return request
 
-    new_root = rewrite.RewriterResource(root, rewrite_rule)
+    if options.rewrite:
+        root = rewrite.RewriterResource(root, rewrite_rule)
+
     try:
-        reactor.listenTCP(options.port, server.Site(new_root), interface=options.interface)
+        reactor.listenTCP(options.port, server.Site(root), interface=options.interface)
     except error.CannotListenError, e:
         print >>sys.stderr, "Couldn't listen on port %d: %s" % (options.port, e.socketError)
         sys.exit(-1)
@@ -73,6 +75,9 @@ def parse_options():
     parser.add_option("-i", "--interface", dest="interface",
         help="interface to serve from (default: 127.0.0.1)",
         default="127.0.0.1")
+    parser.add_option("-r", "--disable-rewrite", dest="rewrite",
+        help="disable URL rewriting", action="store_false",
+        default=True)
 
     (options, args) = parser.parse_args()
 
