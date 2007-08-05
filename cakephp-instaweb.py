@@ -37,6 +37,9 @@ def main():
 
     class PHPScript(twcgi.FilteredScript):
         filter = "/etc/alternatives/php-cgi"
+        def runProcess(self, env, request, qargs=[]):
+            env['SCRIPT_NAME'] = '/index.php'
+            twcgi.FilteredScript.runProcess(self, env, request, qargs)
 
     root = static.File(options.webroot)
     root.processors = {'.php' : PHPScript}
