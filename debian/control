@@ -4,8 +4,8 @@ Priority: optional
 Maintainer: Chris Lamb <chris@chris-lamb.co.uk>
 Build-Depends: debhelper (>= 5), cdbs
 Standards-Version: 3.7.2
-XS-VCS-Git: git://git.chris-lamb.co.uk/cakephp-instaweb.git
-XS-VCS-Browse: http://git.chris-lamb.co.uk/?p=cakephp-instaweb.git
+XS-Vcs-Git: git://git.chris-lamb.co.uk/cakephp-instaweb.git
+XS-Vcs-Browse: http://git.chris-lamb.co.uk/?p=cakephp-instaweb.git
 
 Package: cakephp-instaweb
 Architecture: all
