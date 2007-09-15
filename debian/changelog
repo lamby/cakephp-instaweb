@@ -1,0 +1,5 @@
+cakephp-instaweb (0.1) unstable; urgency=low
+
+  * Initial release. (Closes: #442317)
+
+ -- Chris Lamb <chris@chris-lamb.co.uk>  Sat, 15 Sep 2007 02:06:01 +0100

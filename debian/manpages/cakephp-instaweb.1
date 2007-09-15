@@ -1,0 +1,38 @@
+.TH CAKEPHP-INSTAWEB 1 "September 15, 2007"
+.SH NAME
+cakephp-instaweb \- lightweight HTTP server for developing CakePHP applications
+.SH SYNOPSIS
+.B cakephp-instaweb
+.RI [\-p\ PORT]\ [\-i\ INTERFACE]\ [-r]\ [-q]\ [<webroot>]
+.SH DESCRIPTION
+\fBcakephp-instaweb\fP is a lightweight web server designed for quick development
+of CakePHP web applications.
+.PP
+It is designed to be reasonably intelligent in locating your application's
+webroot folder: running the program from somewhere near your application's
+"app" folder without specifying a webroot argument will start a small web server
+on port 3000 that will point at your application.
+.PP
+(If \fBcakephp-instaweb\fP is unsuccessful in locating your application, or you wish
+to start the server from a different folder, you can specify a precise application
+webroot location on the command line.)
+.SH OPTIONS
+.TP
+.B \--port, \-p
+Specify which port to run on. (default: 3000)
+.TP
+.B \--interface, \-i
+Specify which interface to run on. (default: 127.0.0.1)
+.TP
+.B \--disable-rewrite, \-r
+Disables Apache-style rewriting of URLs. You will need to enable
+the BASE_URL configuration variable in app/config/core.php for
+URLs to function correctly after disabling rewrites.
+.TP
+.B \--quiet, \-q
+Make as little noise as possible.
+.TP
+.B \-help, \-h
+Shows help message.
+.SH AUTHOR
+\fBcakephp-instaweb\fP was written by Chris Lamb <chris@chris-lamb.co.uk>.
