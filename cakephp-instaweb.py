@@ -109,14 +109,14 @@ def find_webroot():
     search = ['src', 'app', 'webroot']
     for i in range(len(search)):
         path = join(*[os.getcwd()] + search[i:])
-        if exists(path): return path
+        if exists(join(path, 'index.php')): return path
 
     # Ascend
     search = os.getcwd()
     while len(search) > 1:
         path = join(search, 'webroot')
         search = dirname(search)
-        if exists(path): return path
+        if exists(join(path, 'index.php')): return path
 
     print >>sys.stderr, "%s: cannot find a CakePHP application; exiting." % sys.argv[0]
     sys.exit(-1)
