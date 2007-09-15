@@ -61,8 +61,10 @@ def main():
         print >>sys.stderr, "Couldn't listen on port %d: %s" % (options.port, e.socketError)
         sys.exit(-1)
 
-    print >>sys.stderr, "Running on http://localhost:%d/" % options.port
-    print >>sys.stderr, "Press CTRL+C to stop hosting"
+    print >>sys.stderr, """
+    CakePHP development server is running at http://localhost:%d/
+    Quit the server with CONTROL-C.
+    """ % options.port
     reactor.run()
 
 def parse_options():
