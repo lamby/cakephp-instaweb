@@ -29,6 +29,7 @@ from twisted.web import static, server, twcgi, rewrite
 
 from optparse import OptionParser
 
+import time
 import os, sys
 
 def main():
@@ -52,8 +53,13 @@ def main():
             request.postpath = ['index.php']
         return request
 
+    def logger_rule(request):
+        print '[%s] "%s %s"' % (time.strftime("%d/%b/%Y %H:%M:%S"), request.method, request.path)
+
     if options.rewrite:
         root = rewrite.RewriterResource(root, rewrite_rule)
+    if not options.quiet:
+        root = rewrite.RewriterResource(root, logger_rule)
 
     try:
         reactor.listenTCP(options.port, server.Site(root), interface=options.interface)
@@ -79,6 +85,9 @@ def parse_options():
     parser.add_option("-r", "--disable-rewrite", dest="rewrite",
         help="disable URL rewriting", action="store_false",
         default=True)
+    parser.add_option("-q", "--quiet", dest="quiet",
+        help="quiet mode", action="store_true",
+        default=False)
 
     (options, args) = parser.parse_args()
 
