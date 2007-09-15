@@ -101,14 +101,23 @@ def parse_options():
     return options
 
 def find_webroot():
-    webroot = os.getcwd()
+    from os.path import exists, dirname, join
+
+    # Descend
     search = ['src', 'app', 'webroot']
     for i in range(len(search)):
-        path = os.path.join(*[webroot] + search[i:])
-        if os.path.exists(path):
-            webroot = path
-            break
-    return webroot
+        path = join(*[os.getcwd()] + search[i:])
+        if exists(path): return path
+
+    # Ascend
+    search = os.getcwd()
+    while len(search) > 1:
+        path = join(search, 'webroot')
+        search = dirname(search)
+        if exists(path): return path
+
+    print >>sys.stderr, "%s: cannot find a CakePHP application; exiting." % sys.argv[0]
+    sys.exit(-1)
 
 if __name__ == "__main__":
     main()
