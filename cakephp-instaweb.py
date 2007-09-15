@@ -64,7 +64,7 @@ def main():
     try:
         reactor.listenTCP(options.port, server.Site(root), interface=options.interface)
     except error.CannotListenError, e:
-        print >>sys.stderr, "Couldn't listen on port %d: %s" % (options.port, e.socketError)
+        print >>sys.stderr, "%s: Couldn't listen on port %d: %s" % (sys.argv[0], options.port, e.socketError[1])
         sys.exit(-1)
 
     if not options.quiet:
