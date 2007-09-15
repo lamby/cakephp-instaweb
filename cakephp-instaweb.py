@@ -26,7 +26,6 @@
 
 from twisted.internet import reactor, error
 from twisted.web import static, server, twcgi, rewrite
-from twisted.application import strports
 
 from optparse import OptionParser
 
