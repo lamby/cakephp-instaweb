@@ -69,8 +69,8 @@ def parse_options():
     usage = "%prog [webroot]"
     parser = OptionParser(usage=usage)
     parser.add_option("-p", "--port", dest="port", type="int",
-        help="serve on port PORT (default: 8080)",
-        metavar="PORT", default="8080")
+        help="serve on port PORT (default: 3000)",
+        metavar="PORT", default="3000")
     parser.add_option("-i", "--interface", dest="interface",
         help="interface to serve from (default: 127.0.0.1)",
         default="127.0.0.1")
