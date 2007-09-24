@@ -1,3 +1,9 @@
+cakephp-instaweb (0.2) unstable; urgency=low
+
+  * Add cakephp1.2 to Recommends:.
+
+ -- Chris Lamb <chris@chris-lamb.co.uk>  Mon, 24 Sep 2007 17:54:47 +0100
+
 cakephp-instaweb (0.1) unstable; urgency=low
 
   * Initial release. (Closes: #442317)
