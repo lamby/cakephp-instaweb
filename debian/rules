@@ -1,3 +1,35 @@
 #!/usr/bin/make -f
 
-include /usr/share/cdbs/1/rules/debhelper.mk
+build:
+
+clean:
+	dh_testdir
+	dh_testroot
+	dh_clean
+
+install:
+	dh_testdir
+	dh_testroot
+	dh_clean -k
+	dh_installdirs
+	dh_install
+
+binary: binary-indep
+
+binary-arch:
+
+binary-indep: install
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs
+	dh_installdocs
+	dh_install
+	dh_installman
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+.PHONY: clean build install binary binary-arch binary-indep

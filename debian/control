@@ -2,7 +2,7 @@ Source: cakephp-instaweb
 Section: web
 Priority: optional
 Maintainer: Chris Lamb <chris@chris-lamb.co.uk>
-Build-Depends: debhelper (>= 5), cdbs
+Build-Depends: debhelper (>= 5)
 Standards-Version: 3.8.0
 XS-Vcs-Git: git://git.chris-lamb.co.uk/cakephp-instaweb.git
 XS-Vcs-Browse: http://git.chris-lamb.co.uk/?p=cakephp-instaweb.git
