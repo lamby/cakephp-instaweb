@@ -1,6 +1,8 @@
 cakephp-instaweb (0.3) unstable; urgency=low
 
-  * Simply Depend: on cakephp now that the cakephp1.2 is obsolete.
+  * debian/control:
+    - Simply Depend: on cakephp now that the cakephp1.2 is obsolete
+    - Bump Standards-Version to 3.8.0
 
  -- Chris Lamb <chris@chris-lamb.co.uk>  Fri, 06 Jun 2008 13:00:55 +0100
 
