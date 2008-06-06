@@ -9,8 +9,7 @@ XS-Vcs-Browse: http://git.chris-lamb.co.uk/?p=cakephp-instaweb.git
 
 Package: cakephp-instaweb
 Architecture: all
-Depends: php5-cgi, python (>= 2.4), python-twisted-web
-Recommends: cakephp1.2 | cakephp
+Depends: php5-cgi, python (>= 2.4), python-twisted-web, cakephp
 Description: Development webserver for CakePHP applications
  CakePHP is a flexible model-view-controller rapid application development
  framework for PHP inspired by Ruby on Rails.
