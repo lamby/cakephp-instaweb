@@ -1,6 +1,7 @@
 cakephp-instaweb (0.3) unstable; urgency=low
 
   * Rework packaging to use debhelper instead of CDBS
+  * Move to machine-parsable debian/copyright
   * debian/control:
     - Simply Depend: on cakephp now that the cakephp1.2 is obsolete
     - Bump Standards-Version to 3.8.0
