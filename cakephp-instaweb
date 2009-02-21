@@ -28,9 +28,11 @@ from twisted.internet import reactor, error
 from twisted.web import static, server, twcgi, rewrite
 
 from optparse import OptionParser
+from os.path import exists, dirname, join
 
+import os
+import sys
 import time
-import os, sys
 
 def main():
     options = parse_options()
@@ -98,7 +100,7 @@ def parse_options():
         help="quiet mode", action="store_true",
         default=False)
 
-    (options, args) = parser.parse_args()
+    options, args = parser.parse_args()
 
     if len(args) == 0:
         options.webroot = find_webroot()
@@ -110,7 +112,6 @@ def parse_options():
     return options
 
 def find_webroot():
-    from os.path import exists, dirname, join
 
     # Descend
     search = ['src', 'app', 'webroot']
@@ -130,8 +131,6 @@ def find_webroot():
     sys.exit(-1)
 
 def find_php():
-    from os.path import exists, join
-
     paths = (
         '/etc/alternatives',
         '/usr/bin',
