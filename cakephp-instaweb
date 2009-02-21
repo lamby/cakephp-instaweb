@@ -3,7 +3,7 @@
 """
   cakephp-instaweb
 
-  Copyright (C) 2007 Chris Lamb <chris@chris-lamb.co.uk>
+  Copyright (C) 2007, 2009 Chris Lamb <chris@chris-lamb.co.uk>
 
   Permission is hereby granted, free of charge, to any person obtaining a
   copy of this software and associated documentation files (the "Software"),
@@ -54,7 +54,8 @@ def main():
         return request
 
     def logger_rule(request):
-        print '[%s] "%s %s"' % (time.strftime("%d/%b/%Y %H:%M:%S"), request.method, request.path)
+        print '[%s] "%s %s"' % \
+            (time.strftime("%d/%b/%Y %H:%M:%S"), request.method, request.path)
 
     if options.rewrite:
         root = rewrite.RewriterResource(root, rewrite_rule)
@@ -62,9 +63,14 @@ def main():
         root = rewrite.RewriterResource(root, logger_rule)
 
     try:
-        reactor.listenTCP(options.port, server.Site(root), interface=options.interface)
+        reactor.listenTCP(
+            options.port,
+            server.Site(root),
+            interface=options.interface,
+        )
     except error.CannotListenError, e:
-        print >>sys.stderr, "%s: Couldn't listen on port %d: %s" % (sys.argv[0], options.port, e.socketError[1])
+        print >>sys.stderr, "%s: Couldn't listen on port %d: %s" % \
+            (sys.argv[0], options.port, e.socketError[1])
         sys.exit(-1)
 
     if not options.quiet:
@@ -118,7 +124,8 @@ def find_webroot():
         search = dirname(search)
         if exists(join(path, 'index.php')): return path
 
-    print >>sys.stderr, "%s: cannot find a CakePHP application; exiting." % sys.argv[0]
+    print >>sys.stderr, "%s: cannot find a CakePHP application; exiting." % \
+        sys.argv[0]
     sys.exit(-1)
 
 if __name__ == "__main__":
