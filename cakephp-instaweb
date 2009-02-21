@@ -36,7 +36,8 @@ def main():
     options = parse_options()
 
     class PHPScript(twcgi.FilteredScript):
-        filter = "/etc/alternatives/php-cgi"
+        filter = find_php()
+
         def runProcess(self, env, request, qargs=[]):
             env['SCRIPT_NAME'] = '/index.php'
             twcgi.FilteredScript.runProcess(self, env, request, qargs)
@@ -125,6 +126,36 @@ def find_webroot():
         if exists(join(path, 'index.php')): return path
 
     print >>sys.stderr, "%s: cannot find a CakePHP application; exiting." % \
+        sys.argv[0]
+    sys.exit(-1)
+
+def find_php():
+    from os.path import exists, join
+
+    paths = (
+        '/etc/alternatives',
+        '/usr/bin',
+        '/usr/local/bin',
+        '/usr/sbin',
+        '/usr/local/sbin',
+        '/opt/php',
+    )
+
+    binaries = (
+        'php-cgi',
+        'php5-cgi',
+        'php4-cgi',
+        'php',
+        'php5',
+        'php4',
+    )
+
+    for php_path, binary in [(x, y) for x in paths for y in binaries]:
+        candidate = join(php_path, binary)
+        if exists(candidate):
+            return candidate
+
+    print >>sys.stderr, "%s: cannot find a PHP binary application; exiting." % \
         sys.argv[0]
     sys.exit(-1)
 
