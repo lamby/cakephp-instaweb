@@ -42,6 +42,7 @@ def main():
 
         def runProcess(self, env, request, qargs=[]):
             env['SCRIPT_NAME'] = '/index.php'
+            env['REDIRECT_STATUS'] = '200'
             twcgi.FilteredScript.runProcess(self, env, request, qargs)
 
     root = static.File(options.webroot)
