@@ -6,7 +6,7 @@ Instantly serves a CakePHP application (for development phase only).
 Requirements
 ------------
 
-* Python 2.6
+* Python 2.5
 * setuptools
 
 Installation
