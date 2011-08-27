@@ -26,7 +26,7 @@ On Debian GNU/Linux systems, you can install the ``cakephp-instaweb`` package.
 Usage
 -----
 
-From your CakePHP app where ``webroot`` is reside::
+From your CakePHP application underneath ``webroot``::
 
     cakephp-instaweb
 
