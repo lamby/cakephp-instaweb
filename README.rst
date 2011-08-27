@@ -12,6 +12,9 @@ Requirements
 Installation
 ------------
 
+On Debian GNU/Linux systems, you can install the ``cakephp-instaweb`` package.
+
+
 1.  Clone this repository::
 
         git clone git://github.com/lamby/cakephp-instaweb.git cakephp-instaweb
