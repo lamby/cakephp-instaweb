@@ -1,7 +1,6 @@
-#!/usr/bin/env python
-
+# -*- coding: utf-8 -*-
 """
-  cakephp-instaweb
+  cakephp_instaweb
 
   Copyright (C) 2007, 2009 Chris Lamb <chris@chris-lamb.co.uk>
 
