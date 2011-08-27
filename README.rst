@@ -41,4 +41,3 @@ Copyright
 ---------
 
 ``CakePHP Instaweb`` is released under MIT License. See ``LICENSE.txt`` for details.
-
