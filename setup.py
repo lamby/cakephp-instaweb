@@ -12,9 +12,9 @@ setup(
     py_modules=['cakephp_instaweb'],
     packages=[''],
     install_requires=['Twisted'],
-    entry_points = {
-        'console_scripts': [
+    entry_points={
+        'console_scripts': (
             'cakephp-instaweb = cakephp_instaweb:main',
-        ]
+        )
     },
 )
