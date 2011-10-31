@@ -2,7 +2,7 @@
 """
   cakephp_instaweb
 
-  Copyright (C) 2007, 2009 Chris Lamb <chris@chris-lamb.co.uk>
+  Copyright (C) 2007, 2009, 2011 Chris Lamb <chris@chris-lamb.co.uk>
 
   Permission is hereby granted, free of charge, to any person obtaining a
   copy of this software and associated documentation files (the "Software"),
